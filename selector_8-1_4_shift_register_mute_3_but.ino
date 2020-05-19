@@ -126,11 +126,11 @@ void loop() {
   if(RecButtonPinState == HIGH) {
     RelayRec = RelayRec + 1;
   }
-  if(RelayRec > 4) {  //put a max of 3 for relay number
+  if(RelayRec > 8) {  //put a max of 3 for relay number
     RelayRec = 1;
   }
   if(RelayRec < 1) {  //put a min of 1 for relay number
-    RelayRec = 4;
+    RelayRec = 8;
   }
 
   if(SourceButtonPinState == HIGH) {
@@ -292,18 +292,22 @@ shifter.setPin(0, LOW); //set pin 1 in the chain(second pin) HIGH
   lcd.setCursor(0,0);
   lcd.write(4);
   lcd.setCursor(2,0);
-  lcd.print("MiniDisc");
+  lcd.print("MD");
   }
 
 if(RelayRec == 1) {
   lcd.setCursor(0,1);
   lcd.write(6);
   lcd.setCursor(2,1);
-  lcd.print("TAPE 1");
+  lcd.print("AUX 1");
   shifter.setPin(8, HIGH); 
   shifter.setPin(9, LOW);
   shifter.setPin(10, LOW); 
   shifter.setPin(11, LOW);
+  shifter.setPin(12, LOW);
+  shifter.setPin(13, LOW); 
+  shifter.setPin(14, LOW);
+  shifter.setPin(15, LOW);
   shifter.write();
   }
   
@@ -311,11 +315,15 @@ if(RelayRec == 2) {
   lcd.setCursor(0,1);
   lcd.write(6);
   lcd.setCursor(2,1);
-  lcd.print("TAPE 2");
+  lcd.print("AUX 2");
   shifter.setPin(8, LOW); 
   shifter.setPin(9, HIGH);
   shifter.setPin(10, LOW); 
   shifter.setPin(11, LOW);
+  shifter.setPin(12, LOW);
+  shifter.setPin(13, LOW); 
+  shifter.setPin(14, LOW);
+  shifter.setPin(15, LOW);
   shifter.write();
   }
   
@@ -323,11 +331,15 @@ if(RelayRec == 3) {
   lcd.setCursor(0,1);
   lcd.write(6);
   lcd.setCursor(2,1);
-  lcd.print("TAPE 3");
+  lcd.print("CD 1");
   shifter.setPin(8, LOW); 
   shifter.setPin(9, LOW);
   shifter.setPin(10, HIGH); 
   shifter.setPin(11, LOW);
+  shifter.setPin(12, LOW);
+  shifter.setPin(13, LOW); 
+  shifter.setPin(14, LOW);
+  shifter.setPin(15, LOW);
   shifter.write();
   }
 
@@ -335,11 +347,79 @@ if(RelayRec == 4) {
   lcd.setCursor(0,1);
   lcd.write(6);
   lcd.setCursor(2,1);
-  lcd.print("OFF");
+  lcd.print("CD 2");
   shifter.setPin(8, LOW); 
   shifter.setPin(9, LOW);
   shifter.setPin(10, LOW); 
   shifter.setPin(11, HIGH);
+  shifter.setPin(12, LOW);
+  shifter.setPin(13, LOW); 
+  shifter.setPin(14, LOW);
+  shifter.setPin(15, LOW);
+  shifter.write();
+  }
+
+  if(RelayRec == 5) {
+  lcd.setCursor(0,1);
+  lcd.write(6);
+  lcd.setCursor(2,1);
+  lcd.print("Tape 1-2,3");
+  shifter.setPin(8, LOW); 
+  shifter.setPin(9, LOW);
+  shifter.setPin(10, LOW); 
+  shifter.setPin(11, LOW);
+  shifter.setPin(12, HIGH);
+  shifter.setPin(13, LOW); 
+  shifter.setPin(14, LOW);
+  shifter.setPin(15, LOW);
+  shifter.write();
+  }
+
+if(RelayRec == 6) {
+  lcd.setCursor(0,1);
+  lcd.write(6);
+  lcd.setCursor(2,1);
+  lcd.print("Tape 2-1,3");
+  shifter.setPin(8, LOW); 
+  shifter.setPin(9, LOW);
+  shifter.setPin(10, LOW); 
+  shifter.setPin(11, LOW);
+  shifter.setPin(12, LOW);
+  shifter.setPin(13, HIGH); 
+  shifter.setPin(14, LOW);
+  shifter.setPin(15, LOW);
+  shifter.write();
+  }
+
+if(RelayRec == 7) {
+  lcd.setCursor(0,1);
+  lcd.write(6);
+  lcd.setCursor(2,1);
+  lcd.print("Tape 3-1,2");
+  shifter.setPin(8, LOW); 
+  shifter.setPin(9, LOW);
+  shifter.setPin(10, LOW); 
+  shifter.setPin(11, LOW);
+  shifter.setPin(12, LOW);
+  shifter.setPin(13, LOW); 
+  shifter.setPin(14, HIGH);
+  shifter.setPin(15, LOW);
+  shifter.write();
+  }
+
+if(RelayRec == 8) {
+  lcd.setCursor(0,1);
+  lcd.write(6);
+  lcd.setCursor(2,1);
+  lcd.print("MD");
+  shifter.setPin(8, LOW); 
+  shifter.setPin(9, LOW);
+  shifter.setPin(10, LOW); 
+  shifter.setPin(11, LOW);
+  shifter.setPin(12, LOW);
+  shifter.setPin(13, LOW); 
+  shifter.setPin(14, LOW);
+  shifter.setPin(15, HIGH);
   shifter.write();
   }
 
